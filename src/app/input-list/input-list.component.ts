@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {IOption} from '../shared/model/ioption';
 import {OptionType} from '../shared/constants/option-type.enum';
 import {OptionStyle} from '../shared/constants/option-style.enum';
-import {BarrierUpDown} from "../shared/constants/barrier-up-down.enum";
-import {OptionBinary} from "../shared/constants/option-binary.enum";
-import {BarrierInOut} from "../shared/constants/barrier-in-out.enum";
+import {BarrierUpDown} from '../shared/constants/barrier-up-down.enum';
+import {OptionBinary} from '../shared/constants/option-binary.enum';
+import {BarrierInOut} from '../shared/constants/barrier-in-out.enum';
 
 @Component({
   selector: 'app-input-list',
@@ -28,31 +28,8 @@ export class InputListComponent implements OnInit {
     bonus: 50,
     upOrDown: BarrierUpDown.up,
     inOrOut: BarrierInOut.in,
-    barrier: 40
+    barrier: 35
   }
-
-  options: IOption[] = [
-    {
-      timeToExpiration: 1,
-      type: OptionType.call,
-      strike: 35,
-      spot: 30,
-      rate: 0.02,
-      dividend: 0,
-      volatility: 0.3,
-      style: OptionStyle.european
-    },
-    {
-      timeToExpiration: 2,
-      type: OptionType.put,
-      strike: 30,
-      spot: 35,
-      rate: 0.02,
-      dividend: 0,
-      volatility: 0.3,
-      style: OptionStyle.european
-    }
-  ]
 
   constructor() { }
 
@@ -231,46 +208,6 @@ export class InputListComponent implements OnInit {
     this.currentStyle = value;
     this.newOption.style = value;
   }
-
-  checkOptionStyle({style}: IOption): boolean {
-    switch (this.currentStyle) {
-
-      case OptionStyle.binary:
-        return style === OptionStyle.binary;
-
-      case OptionStyle.barrier:
-        return style === OptionStyle.barrier;
-
-      default:
-        return true;
-    }
-  }
-
-  setCash() {
-    this.newOption.cashOrAsset = OptionBinary.cash;
-  }
-  setAsset() {
-    this.newOption.cashOrAsset = OptionBinary.asset;
-  }
-
-  setIn() {
-    this.newOption.inOrOut = BarrierInOut.in;
-  }
-  setOut() {
-    this.newOption.inOrOut = BarrierInOut.out;
-  }
-  setUp() {
-    this.newOption.upOrDown = BarrierUpDown.up;
-  }
-  setDown() {
-    this.newOption.upOrDown = BarrierUpDown.down;
-  }
-  setCall() {
-    this.newOption.type = OptionType.call;
-  }
-  setPut() {
-    this.newOption.type = OptionType.put;
-  }
   changeType() {
     this.newOption.type = this.newOption.type === OptionType.call  ? OptionType.put : OptionType.call;
   }
@@ -284,22 +221,5 @@ export class InputListComponent implements OnInit {
     this.newOption.inOrOut = this.newOption.inOrOut === BarrierInOut.in  ? BarrierInOut.out : BarrierInOut.in;
   }
 
-  createNewOption(): IOption {
-    return {
-      timeToExpiration: this.newOption.timeToExpiration,
-      type: this.newOption.type,
-      strike: this.newOption.strike,
-      spot: this.newOption.spot,
-      rate: this.newOption.rate,
-      dividend: this.newOption.dividend,
-      volatility: this.newOption.volatility,
-      price: this.newOption.price,
-      style: this.newOption.style,
-      cashOrAsset: this.newOption.cashOrAsset,
-      bonus: this.newOption.bonus,
-      upOrDown: this.newOption.upOrDown,
-      inOrOut: this.newOption.inOrOut,
-      barrier: this.newOption.barrier
-    };
-  }
+
 }
