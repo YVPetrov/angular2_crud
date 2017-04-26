@@ -1,0 +1,96 @@
+<h1 class="header">Options Calculator</h1>
+<app-option-style [currentOptionStyle]="currentStyle"
+(optionStyleChange)="onOptionStyleChange($event)">
+</app-option-style>
+<section class="input-app">
+ <table>
+   <tr>
+     <td>type</td>
+     <td class="can-toggle demo-rebrand-1">
+       <div class="can-toggle demo-rebrand-1">
+         <input id="a" type="checkbox" (click)="changeType()">
+         <label for="a">
+           <div class="can-toggle__switch" data-checked="put" data-unchecked="call"></div>
+         </label>
+       </div>
+     </td>
+   </tr>
+  <tr *ngIf="currentStyle == 1">
+    <td>cashOrAsset</td>
+    <td>
+      <div class="can-toggle demo-rebrand-1">
+        <input id="b" type="checkbox" (click)="changeCashOrAsset()">
+        <label for="b">
+          <div class="can-toggle__switch" data-checked="asset" data-unchecked="cash"></div>
+        </label>
+      </div>
+    </td>
+  </tr>
+  <tr *ngIf="currentStyle == 1">
+    <td>bonus</td>
+    <td><input class="task-todo" [(ngModel)]="newOption.bonus" (keyup.enter)="addTodo()"></td>
+  </tr>
+  <tr *ngIf="currentStyle == 2">
+    <td>inOrOut</td>
+    <td><div class="can-toggle demo-rebrand-1">
+      <input id="c" type="checkbox" (click)="changeInOrOut()">
+      <label for="c">
+        <div class="can-toggle__switch" data-checked="out" data-unchecked="in"></div></label>
+    </div>
+    </td>
+  </tr>
+  <tr *ngIf="currentStyle == 2">
+    <td>upOrDown</td>
+    <td><div class="can-toggle demo-rebrand-1">
+      <input id="d" type="checkbox" (click)="changeUpOrDown()">
+      <label for="d">
+        <div class="can-toggle__switch" data-checked="down" data-unchecked="up"></div></label>
+    </div>
+    </td>
+  </tr>
+  <tr *ngIf="currentStyle == 2">
+    <td>barrier</td>
+    <td><input class="task-todo" [(ngModel)]="newOption.barrier" (keyup.enter)="addTodo()"></td>
+  </tr>
+  <tr>
+    <td>timeToExpiration</td>
+    <td><input class="task-todo" [(ngModel)]="newOption.timeToExpiration" (keyup.enter)="addTodo()"></td>
+  </tr>
+  <tr>
+    <td>spot</td>
+    <td><input class="task-todo" [(ngModel)]="newOption.spot" (keyup.enter)="addTodo()"></td>
+  </tr>
+  <tr>
+    <td>strike</td>
+    <td><input class="task-todo" [(ngModel)]="newOption.strike" (keyup.enter)="addTodo()"></td>
+  </tr>
+  <tr>
+    <td>rate</td>
+    <td><input class="task-todo" [(ngModel)]="newOption.rate" (keyup.enter)="addTodo()"></td>
+  </tr>
+  <tr>
+    <td>dividend</td>
+    <td><input class="task-todo" [(ngModel)]="newOption.dividend" (keyup.enter)="addTodo()"></td>
+  </tr>
+  <tr>
+    <td>volatility</td>
+    <td><input class="task-todo" [(ngModel)]="newOption.volatility" (keyup.enter)="addTodo()"></td>
+  </tr>
+ </table>
+</section>
+<br>
+<section class="option-btn">
+  <button class="option-btn-size" (click)="addTodo()">CALCULATE!</button>
+  <br>
+  <input [(ngModel)]="newOption.price" disabled>
+</section>
+<!--
+<div *ngFor="let option of options">
+  <app-result-list [option]="option"></app-result-list>
+</div> -->
+
+<div>
+  <app-result-list [newOption]="newOption"></app-result-list>
+</div>
+
+

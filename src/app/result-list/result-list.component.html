@@ -1,0 +1,38 @@
+<h1>Portfolio</h1>
+
+<table class="list">
+  <tr>
+    <th>style</th>
+    <th>type</th>
+    <th>other property</th>
+    <th>maturity</th>
+    <th>strike</th>
+    <th>spot</th>
+    <th>rate</th>
+    <th>dividend</th>
+    <th>volatility</th>
+    <th>price</th>
+  </tr>
+  <tr
+    *ngFor="let option of options"
+    class="list__item"
+  >
+    <td>{{optionStyle(option.style)}}</td>
+    <td>{{optionType(option.type)}}</td>
+    <td *ngIf="option.style == 2">{{optionBarrierInOut(option.inOrOut)}}-{{optionBarrierUpDown(option.upOrDown)}} | barrier: {{option.barrier}}</td>
+    <td *ngIf="option.style == 1">{{optionBinaryCashAsset(option.cashOrAsset)}} | bonus: {{option.bonus}}</td>
+    <td *ngIf="option.style == 0" aria-disabled="true">-----</td>
+    <td>{{option.timeToExpiration}}</td>
+    <td>{{option.strike}}</td>
+    <td>{{option.spot}}</td>
+    <td>{{option.rate}}</td>
+    <td>{{option.dividend}}</td>
+    <td>{{option.volatility}}</td>
+    <td>{{option.price}}</td>
+    <div class="delete" (click)="deleteOption(option)">&#x274C;</div>
+  </tr>
+</table>
+
+<button class="option-btn-size" (click)="addOption(createNewOption())">ADD TO PORTFOLIO!</button>
+
+

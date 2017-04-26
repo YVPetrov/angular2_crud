@@ -1,0 +1,19 @@
+<div class="filters">
+  <div
+    class="filters__item"
+    [class.filters__item_selected]="isActive(optionStyle.european)"
+    (click)="setOptionStyle(optionStyle.european)">european
+  </div>
+  <br>
+  <div
+    class="filters__item"
+    [class.filters__item_selected]="isActive(optionStyle.binary)"
+    (click)="setOptionStyle(optionStyle.binary)">binary
+  </div>
+  <br>
+  <div
+    class="filters__item"
+    [class.filters__item_selected]="isActive(optionStyle.barrier)"
+    (click)="setOptionStyle(optionStyle.barrier)">barrier
+  </div>
+</div>

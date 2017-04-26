@@ -1,0 +1,51 @@
+table {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+  text-align: center;
+  border-collapse: separate;
+  border-spacing: 5px;
+  background: #ECE9E0;
+  color: #656665;
+  border: 16px solid #ECE9E0;
+  border-radius: 20px;
+}
+th {
+  font-size: 18px;
+  padding: 10px;
+}
+td {
+  background: #F5D7BF;
+  padding: 10px;
+}
+
+
+.option-btn-size {
+  position: absolute;
+  top: 300px;
+  width: 115px;
+  left: 570px;
+  border-radius: 10px;
+  height: 50px;
+  background-color: lightcyan;
+  border-color: blue;
+  cursor: pointer;
+  outline: none;
+}
+
+.task__delete-button {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: red;
+  font-size: 12px;
+  visibility: hidden;
+  cursor: pointer;
+}
+
+.delete {
+  position: relative;
+  top: 10px;
+  left: 10px;
+  cursor: pointer;
+}
+

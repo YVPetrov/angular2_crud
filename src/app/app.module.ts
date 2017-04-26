@@ -3,11 +3,19 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { AppComponent } from './app.component';
+import { Angular2TodoAppAppComponent } from './app.component';
+import { TodoAppComponent } from './todo-app/todo-app.component';
+import { InputListComponent } from './input-list/input-list.component';
+import { ResultListComponent } from './result-list/result-list.component';
+import { OptionStyleComponent } from './option-style/option-style.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    Angular2TodoAppAppComponent,
+    TodoAppComponent,
+    InputListComponent,
+    ResultListComponent,
+    OptionStyleComponent
   ],
   imports: [
     BrowserModule,
@@ -15,6 +23,6 @@ import { AppComponent } from './app.component';
     HttpModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [Angular2TodoAppAppComponent]
 })
 export class AppModule { }
