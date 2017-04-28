@@ -1,4 +1,4 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {IOption} from "../shared/model/ioption";
 import {OptionStyle} from "../shared/constants/option-style.enum";
 import {OptionType} from "../shared/constants/option-type.enum";
@@ -15,13 +15,16 @@ export class ResultListComponent implements OnInit {
 
   constructor() { }
   @Input() newOption: IOption;
+  @Output() priceChange = new EventEmitter();
 
   ngOnInit() {
   }
 
   options: IOption[] = [];
-
+  value: boolean;
   addOption(option: IOption) {
+    this.value = false;
+    this.priceChange.emit(this.value);
     this.options = this.options.concat(option);
   }
 
@@ -44,11 +47,6 @@ export class ResultListComponent implements OnInit {
       inOrOut: this.newOption.inOrOut,
       barrier: this.newOption.barrier
     };
-  }
-
-  result: number = 1;
-  changeResult() {
-    this.result = this.result === 1 ? 0 : 1;
   }
 
   deleteOption(option: IOption) {

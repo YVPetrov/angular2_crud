@@ -28,9 +28,14 @@
   background-color: lightcyan;
   border-color: blue;
 }
-.option-btn input {
+.option-btn div {
+  position: absolute;
+  top: 70px;
+}
+.option-btn p {
   position: relative;
-  top: 20px;
+  top: -43px;
+  left: 70px;
 }
 
 .inputapp input {

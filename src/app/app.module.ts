@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { InputListComponent } from './input-list/input-list.component';
 import { ResultListComponent } from './result-list/result-list.component';
 import { OptionStyleComponent } from './option-style/option-style.component';
+import {IOptionService} from "./shared/model/ioption.service";
+
 
 @NgModule({
   declarations: [
@@ -20,7 +22,7 @@ import { OptionStyleComponent } from './option-style/option-style.component';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [IOptionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
